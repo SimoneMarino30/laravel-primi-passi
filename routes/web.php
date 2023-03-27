@@ -13,7 +13,38 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Home
 Route::get('/', function () {
-    $greeting = 'Hello World';
-    return view('home', compact('greeting'));
-});
+  $greeting = 'Hello World';
+  return view('home', compact('greeting'));
+})->name('homepage');
+
+// Greetlist
+Route::get('/greetings', function () {
+  $worldGreetings = [
+   'Ciao Mondo',
+   'Hola Mundo',
+   'こんにちは世界',
+   'Bonjour le monde',
+   'Hallo Welt'
+  ];
+
+  
+  return view('greetings.greetList', compact('worldGreetings'));
+})->name('world-greetings');
+
+
+Route::get('/country-greeting/{index}', function ($index) {
+  $worldGreetings = [
+   'Ciao Mondo',
+   'Hola Mundo',
+   'こんにちは世界',
+   'Bonjour le monde',
+   'Hallo Welt'
+  ];
+  
+  $worldGreeting = $worldGreetings[$index];
+ 
+
+  return view('greetings.greetCountry', compact('worldGreeting'));
+})->name('country-greeting');

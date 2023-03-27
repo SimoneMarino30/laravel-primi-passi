@@ -9,7 +9,10 @@
 </head>
 
 <body>
-    <h1>{{ $greeting }}</h1>
+  <h1>{{ $greeting }}</h1>
+  <a href="{{ route('world-greetings') }}">
+    Saluti dal mondo
+  </a>
 </body>
 
 </html>
